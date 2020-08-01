@@ -1,11 +1,10 @@
-class OpenweatherService 
-
+class OpenweatherService
   def get_weather_by_location(lat, lon, exclude)
-    params = { lat: lat, lon: lon, exclude: exclude}
+    params = { lat: lat, lon: lon, exclude: exclude }
 
     get_json('onecall', params)
   end
-  
+
   private
 
   def get_json(url, params)
@@ -21,4 +20,3 @@ class OpenweatherService
     end
   end
 end
-

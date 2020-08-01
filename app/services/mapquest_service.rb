@@ -1,11 +1,10 @@
-class MapquestService 
-
+class MapquestService
   def get_geocode_address(location)
-    params = { location: location}
+    params = { location: location }
 
     get_json('address', params)
   end
-  
+
   private
 
   def get_json(url, params)

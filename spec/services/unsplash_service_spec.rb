@@ -9,7 +9,6 @@ describe 'Unsplash API' do
   end
 
   it 'sends photos by keyword search' do
-    
     expect(@unsplash_photos[:results]).to be_a(Array)
     expect(@unsplash_photos[:results].first).to have_key(:id)
     expect(@unsplash_photos[:results].first).to have_key(:created_at)

@@ -9,7 +9,6 @@ describe 'MapQuest API' do
   end
 
   it 'sends geocode address for given city and state' do
-    
     expect(@geocode_address[:results]).to be_a(Array)
     expect(@geocode_address[:results].first[:locations].first[:latLng]).to have_key(:lat)
     expect(@geocode_address[:results].first[:locations].first[:latLng]).to have_key(:lng)
