@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openweathermap.org/data/2.5/onecall?appid=e55ad787ce987bb202239a04c670630a&exclude=minutely&lat=39.738453&lon=-104.984853
+    uri: https://api.openweathermap.org/data/2.5/onecall?appid=<OPEN_WEATHER_API_KEY>&exclude=minutely&lat=39.738453&lon=-104.984853
     body:
       encoding: US-ASCII
       string: ''
@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - openresty
       Date:
-      - Sat, 01 Aug 2020 20:41:21 GMT
+      - Sat, 01 Aug 2020 20:43:41 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -96,5 +96,5 @@ http_interactions:
         rain","icon":"10d"}],"clouds":0,"pop":0.69,"rain":1.1,"uvi":11.03},{"dt":1596826800,"sunrise":1596801903,"sunset":1596852374,"temp":{"day":307.07,"min":295.85,"max":307.79,"night":297.98,"eve":305.51,"morn":295.85},"feels_like":{"day":302.98,"night":293.56,"eve":300.26,"morn":292.75},"pressure":1010,"humidity":11,"dew_point":270.58,"wind_speed":2.86,"wind_deg":316,"weather":[{"id":500,"main":"Rain","description":"light
         rain","icon":"10d"}],"clouds":1,"pop":0.41,"rain":0.88,"uvi":10.28},{"dt":1596913200,"sunrise":1596888360,"sunset":1596938703,"temp":{"day":307.24,"min":296.32,"max":307.97,"night":299.03,"eve":306.95,"morn":296.32},"feels_like":{"day":303.6,"night":295.33,"eve":302.66,"morn":293.14},"pressure":1013,"humidity":10,"dew_point":269.92,"wind_speed":1.99,"wind_deg":309,"weather":[{"id":500,"main":"Rain","description":"light
         rain","icon":"10d"}],"clouds":0,"pop":0.35,"rain":0.41,"uvi":10.31}]}'
-  recorded_at: Sat, 01 Aug 2020 20:41:21 GMT
+  recorded_at: Sat, 01 Aug 2020 20:43:41 GMT
 recorded_with: VCR 6.0.0
