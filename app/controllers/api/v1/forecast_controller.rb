@@ -1,4 +1,4 @@
-class Api::V1::ForecastController < ActionController::API
+class Api::V1::ForecastController < ApplicationController
   def index
     address = MapquestService.new.get_geocode_address(params[:location])
     lat = address[:results].first[:locations].first[:latLng][:lat]
