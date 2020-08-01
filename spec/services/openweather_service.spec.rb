@@ -5,10 +5,9 @@ describe 'OpenWeather API' do
     lat = 39.738453
     lon = -104.984853
     exclude = "minutely"
-    appid = ENV['OPEN_WEATHER_API_KEY']
 
     weather = OpenweatherService.new
-    @weather_data = weather.get_weather_by_location(token)
+    @weather_data = weather.get_weather_by_location(lat, lon, exclude)
   end
 
   it 'sends current weather data' do
@@ -27,11 +26,11 @@ describe 'OpenWeather API' do
     expect(@weather_data[:current]).to have_key(:visibility)
     expect(@weather_data[:current]).to have_key(:wind_speed)
     expect(@weather_data[:current]).to have_key(:wind_deg)
-    expect(@weather_data[:current]).to have_key(:wind_gust)
-    expect(@weather[:current][:weather]).to have_key(:id)
-    expect(@weather_data[:current][:weather]).to have_key(:main)
-    expect(@weather_data[:current][:weather]).to have_key(:description)
-    expect(@weather_data[:current][:weather]).to have_key(:icon)
+    # expect(@weather_data[:current]).to have_key(:wind_gust)
+    expect(@weather_data[:current][:weather].first).to have_key(:id)
+    expect(@weather_data[:current][:weather].first).to have_key(:main)
+    expect(@weather_data[:current][:weather].first).to have_key(:description)
+    expect(@weather_data[:current][:weather].first).to have_key(:icon)
   end
 
   it 'sends hourly weather data' do
@@ -47,10 +46,10 @@ describe 'OpenWeather API' do
     expect(@weather_data[:hourly].first).to have_key(:visibility)
     expect(@weather_data[:hourly].first).to have_key(:wind_speed)
     expect(@weather_data[:hourly].first).to have_key(:wind_deg)
-    expect(@weather_data[:hourly].first[:weather]).to have_key(:id)
-    expect(@weather_data[:hourly].first[:weather]).to have_key(:main)
-    expect(@weather_data[:hourly].first[:weather]).to have_key(:description)
-    expect(@weather_data[:hourly].first[:weather]).to have_key(:icon)
+    expect(@weather_data[:hourly].first[:weather].first).to have_key(:id)
+    expect(@weather_data[:hourly].first[:weather].first).to have_key(:main)
+    expect(@weather_data[:hourly].first[:weather].first).to have_key(:description)
+    expect(@weather_data[:hourly].first[:weather].first).to have_key(:icon)
   end
 
   it 'sends daily weather data' do
@@ -74,10 +73,10 @@ describe 'OpenWeather API' do
     expect(@weather_data[:daily].first).to have_key(:dew_point)
     expect(@weather_data[:daily].first).to have_key(:wind_speed)
     expect(@weather_data[:daily].first).to have_key(:wind_deg)
-    expect(@weather_data[:daily].first[:weather]).to have_key(:id)
-    expect(@weather_data[:daily].first[:weather]).to have_key(:main)
-    expect(@weather_data[:daily].first[:weather]).to have_key(:description)
-    expect(@weather_data[:daily].first[:weather]).to have_key(:icon)
+    expect(@weather_data[:daily].first[:weather].first).to have_key(:id)
+    expect(@weather_data[:daily].first[:weather].first).to have_key(:main)
+    expect(@weather_data[:daily].first[:weather].first).to have_key(:description)
+    expect(@weather_data[:daily].first[:weather].first).to have_key(:icon)
     expect(@weather_data[:daily].first).to have_key(:clouds)
     expect(@weather_data[:daily].first).to have_key(:pop)
     expect(@weather_data[:daily].first).to have_key(:rain)
