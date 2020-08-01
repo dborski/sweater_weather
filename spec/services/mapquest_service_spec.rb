@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'MapQuest API' do
+describe 'MapQuest API', :vcr do
   before(:each) do
     location = 'denver,co'
 

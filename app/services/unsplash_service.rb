@@ -1,8 +1,7 @@
 class UnsplashService < BaseService
-
   def initialize
-     @base_url = 'https://api.unsplash.com/'
-     @unsplash_key = ENV['UNSPLASH_API_KEY']
+    @base_url = 'https://api.unsplash.com/'
+    @unsplash_key = ENV['UNSPLASH_API_KEY']
   end
 
   def get_photos_by_keyword(keyword)

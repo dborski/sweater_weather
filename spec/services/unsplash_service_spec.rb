@@ -8,7 +8,7 @@ describe 'Unsplash API' do
     @unsplash_photos = unsplash.get_photos_by_keyword(keyword)
   end
 
-  it 'sends photos by keyword search' do
+  it 'sends photos by keyword search', :vcr do
     expect(@unsplash_photos[:results]).to be_a(Array)
     expect(@unsplash_photos[:results].first).to have_key(:id)
     expect(@unsplash_photos[:results].first).to have_key(:created_at)

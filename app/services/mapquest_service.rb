@@ -1,5 +1,4 @@
 class MapquestService < BaseService
-
   def initialize
     @base_url = 'http://www.mapquestapi.com/geocoding/v1/'
     @mapquest_key = ENV['MAPQUEST_API_KEY']

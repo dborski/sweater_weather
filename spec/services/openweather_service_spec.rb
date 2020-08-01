@@ -10,7 +10,7 @@ describe 'OpenWeather API' do
     @weather_data = weather.get_weather_by_location(lat, lon, exclude)
   end
 
-  it 'sends current weather data' do
+  it 'sends current weather data', :vcr do
     expect(@weather_data[:current]).to be_a(Hash)
     expect(@weather_data[:current]).to have_key(:dt)
     expect(@weather_data[:current]).to have_key(:sunrise)
@@ -31,7 +31,7 @@ describe 'OpenWeather API' do
     expect(@weather_data[:current][:weather].first).to have_key(:icon)
   end
 
-  it 'sends hourly weather data' do
+  it 'sends hourly weather data', :vcr do
     expect(@weather_data[:hourly]).to be_a(Array)
     expect(@weather_data[:hourly].first).to have_key(:dt)
     expect(@weather_data[:hourly].first).to have_key(:temp)
@@ -49,7 +49,7 @@ describe 'OpenWeather API' do
     expect(@weather_data[:hourly].first[:weather].first).to have_key(:icon)
   end
 
-  it 'sends daily weather data' do
+  it 'sends daily weather data', :vcr do
     expect(@weather_data[:daily]).to be_a(Array)
     expect(@weather_data[:daily].first).to have_key(:dt)
     expect(@weather_data[:daily].first).to have_key(:sunrise)

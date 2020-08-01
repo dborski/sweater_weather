@@ -1,5 +1,4 @@
 class BaseService
-  
   def get_json(base_url, url, params = nil, headers = nil)
     response = conn(base_url).get(url, params, headers) do |request|
     end
