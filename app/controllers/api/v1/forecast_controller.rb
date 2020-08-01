@@ -6,5 +6,5 @@ class Api::V1::ForecastController < ApplicationController
     weather_data = OpenweatherService.new.get_weather_by_location(lat, lng)
 
     render json: ForecastSerializer.new(Forecast.new(weather_data))
-  end 
+  end
 end

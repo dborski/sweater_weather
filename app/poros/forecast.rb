@@ -7,4 +7,4 @@ class Forecast
     @hourly = weather_data[:hourly]
     @daily = weather_data[:daily]
   end
-end 
+end
