@@ -4,7 +4,7 @@ class OpenweatherService < BaseService
     @openweather_key = ENV['OPEN_WEATHER_API_KEY']
   end
 
-  def get_weather_by_location(lat, lon, exclude)
+  def get_weather_by_location(lat, lon, exclude = 'minutely')
     params = { appid: @openweather_key, lat: lat, lon: lon, exclude: exclude }
 
     get_json(@base_url, 'onecall', params)

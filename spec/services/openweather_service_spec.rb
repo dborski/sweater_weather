@@ -10,6 +10,10 @@ describe 'OpenWeather API' do
     @weather_data = weather.get_weather_by_location(lat, lon, exclude)
   end
 
+  it 'sends timezone of weather location', :vcr do
+    expect(@weather_data).to have_key(:timezone)
+  end
+
   it 'sends current weather data', :vcr do
     expect(@weather_data[:current]).to be_a(Hash)
     expect(@weather_data[:current]).to have_key(:dt)
