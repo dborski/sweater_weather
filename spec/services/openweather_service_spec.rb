@@ -26,7 +26,6 @@ describe 'OpenWeather API' do
     expect(@weather_data[:current]).to have_key(:visibility)
     expect(@weather_data[:current]).to have_key(:wind_speed)
     expect(@weather_data[:current]).to have_key(:wind_deg)
-    # expect(@weather_data[:current]).to have_key(:wind_gust)
     expect(@weather_data[:current][:weather].first).to have_key(:id)
     expect(@weather_data[:current][:weather].first).to have_key(:main)
     expect(@weather_data[:current][:weather].first).to have_key(:description)
