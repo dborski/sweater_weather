@@ -16,6 +16,6 @@ describe 'Unsplash API' do
 
     image = JSON.parse(response.body, symbolize_names: true)
 
-    expect(image[:data]).to eq(@background_image.url)
+    expect(image[:data][:attributes][:url]).to eq(@background_image.url)
   end
 end

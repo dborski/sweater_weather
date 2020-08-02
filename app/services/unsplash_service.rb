@@ -5,7 +5,7 @@ class UnsplashService < BaseService
   end
 
   def get_photos_by_keyword(keyword)
-    city_only = keyword.split(",").first
+    city_only = keyword.split(',').first
     params = { query: city_only }
     headers = { Authorization: 'Client-ID ' + @unsplash_key }
 
