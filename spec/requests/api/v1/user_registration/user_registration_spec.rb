@@ -2,10 +2,10 @@ require 'rails_helper'
 
 describe 'User Registration' do
   it 'Successfully creates a new user along with a unique api key', :vcr do
-    body = { 
+    body = {
       email: 'test@email.com',
       password: 'password',
-      password_confirmation: 'password',
+      password_confirmation: 'password'
     }
 
     post '/api/v1/users', params: body
@@ -19,12 +19,10 @@ describe 'User Registration' do
   end
 
   it 'Fails to create a new user because email isnt unique', :vcr do
-    user1 = create(:user, email: 'test1@email.com')
-
-    body = { 
+    body = {
       email: 'test1@email.com',
       password: 'password',
-      password_confirmation: 'password',
+      password_confirmation: 'password'
     }
 
     post '/api/v1/users', params: body
@@ -32,16 +30,14 @@ describe 'User Registration' do
     new_user = JSON.parse(response.body, symbolize_names: true)
 
     expect(new_user[:status]).to eq(400)
-    expect(new_user[:body]).to eq("Email has already been taken")
+    expect(new_user[:body]).to eq('Email has already been taken')
   end
 
   it 'Fails to create a new user because passwords dont match', :vcr do
-    user1 = create(:user, email: 'test1@email.com')
-
-    body = { 
+    body = {
       email: 'test@email.com',
       password: 'password',
-      password_confirmation: 'password1',
+      password_confirmation: 'password1'
     }
 
     post '/api/v1/users', params: body
@@ -53,10 +49,10 @@ describe 'User Registration' do
   end
 
   it 'Fails to create a new user because email is missing', :vcr do
-    body = { 
+    body = {
       email: '',
       password: 'password1',
-      password_confirmation: 'password1',
+      password_confirmation: 'password1'
     }
 
     post '/api/v1/users', params: body
@@ -68,10 +64,10 @@ describe 'User Registration' do
   end
 
   it 'Fails to create a new user because password is missing', :vcr do
-    body = { 
+    body = {
       email: 'test@email.com',
       password: '',
-      password_confirmation: 'password1',
+      password_confirmation: 'password1'
     }
 
     post '/api/v1/users', params: body

@@ -4,8 +4,8 @@ class User < ApplicationRecord
   validates_presence_of :password, require: true, confirmation: true
   validates_confirmation_of :password
   has_secure_password
-  
-  before_create do 
+
+  before_create do
     self.api_key = SecureRandom.uuid
-  end 
+  end
 end
