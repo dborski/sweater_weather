@@ -15,12 +15,12 @@ describe 'User Login' do
 
     expect(logged_in_user[:data]).to have_key(:type)
     expect(logged_in_user[:data]).to have_key(:id)
-    expect(logged_in_user[:data][:attributes][:email]).to eq(body[:email])
+    expect(logged_in_user[:data][:attributes][:email]).to eq(user1.email)
     expect(logged_in_user[:data][:attributes]).to have_key(:api_key)
   end
 
   it 'User fails to login because email is invalid', :vcr do
-    user1 = create(:user, email: 'test@email.com', password: 'password')
+    create(:user, email: 'test@email.com', password: 'password')
 
     body = {
       email: 'test123@email.com',
@@ -32,11 +32,11 @@ describe 'User Login' do
     logged_in_user = JSON.parse(response.body, symbolize_names: true)
 
     expect(logged_in_user[:status]).to eq(400)
-    expect(logged_in_user[:body]).to eq("Credentials Invalid")
+    expect(logged_in_user[:body]).to eq('Credentials Invalid')
   end
 
   it 'User fails to login because password is invalid', :vcr do
-    user1 = create(:user, email: 'test@email.com', password: 'password')
+    create(:user, email: 'test@email.com', password: 'password')
 
     body = {
       email: 'test@email.com',
@@ -48,6 +48,6 @@ describe 'User Login' do
     logged_in_user = JSON.parse(response.body, symbolize_names: true)
 
     expect(logged_in_user[:status]).to eq(400)
-    expect(logged_in_user[:body]).to eq("Credentials Invalid")
+    expect(logged_in_user[:body]).to eq('Credentials Invalid')
   end
 end
