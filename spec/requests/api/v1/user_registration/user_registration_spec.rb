@@ -19,6 +19,7 @@ describe 'User Registration' do
   end
 
   it 'Fails to create a new user because email isnt unique', :vcr do
+    create(:user, email: 'test1@email.com')
     body = {
       email: 'test1@email.com',
       password: 'password',
