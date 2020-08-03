@@ -14,7 +14,7 @@ class Trail
   end 
 
   def trails
-    trails = get_trails(location)[:trails]
+    trails = get_trails(location)
     trails.each do |trail|
       trail[:distance_to_trail] = get_directions(location,trail[:location])[:route][:distance]
     end 
@@ -43,7 +43,6 @@ class Trail
     coordinates = get_coordinates(location)
     lat = coordinates[:results].first[:locations].first[:latLng][:lat]
     lng = coordinates[:results].first[:locations].first[:latLng][:lng]
-    HikingParser.new.get_trails(lat, lng)
-    # HikingService.new.get_trails(lat, lng)
+    TrailParser.new.get_trails(lat, lng)
   end 
 end 
