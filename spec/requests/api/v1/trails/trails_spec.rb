@@ -19,7 +19,6 @@ describe 'Trails API' do
     expect(trails[:data][:attributes][:forecast][:summary]).to eq('clear sky')
     expect(trails[:data][:attributes][:forecast][:temperature]).to eq(73.4)
 
-
     expect(trails[:data][:attributes][:trails]).to be_a(Array)
     expect(trails[:data][:attributes][:trails].first[:name]).to eq('Boulder Skyline Traverse')
     expect(trails[:data][:attributes][:trails].first[:summary]).to eq('The classic long mountain route in Boulder.')

@@ -5,7 +5,7 @@ describe 'MapQuest API', :vcr do
     location = 'denver,co'
 
     from = 'denver,co'
-    to =  'boulder,co'
+    to = 'boulder,co'
 
     mapquest = MapquestService.new
     @geocode_address = mapquest.get_geocode_address(location)

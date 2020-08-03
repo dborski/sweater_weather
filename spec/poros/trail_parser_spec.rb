@@ -6,7 +6,7 @@ describe 'Hiking parser' do
     lon = -104.984853
 
     parser = TrailParser.new
-    trails = parser.get_trails(lat,lon)
+    trails = parser.get_trails(lat, lon)
 
     expect(trails.first[:name]).to eq('Boulder Skyline Traverse')
     expect(trails.first[:summary]).to eq('The classic long mountain route in Boulder.')

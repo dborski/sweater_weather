@@ -12,7 +12,7 @@ describe 'Trail' do
 
   it 'attributes', :vcr do
     expect(@trail.location).to eq(@location)
-    
+
     expect(@trail.forecast[:summary]).to eq('few clouds')
     expect(@trail.forecast[:temperature]).to eq(76.71)
 

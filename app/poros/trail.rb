@@ -6,21 +6,21 @@ class Trail
   end
 
   def forecast
-    weather = get_weather(location)
+    weather = get_weather(@location)
     {
       summary: weather[:current][:weather].first[:description],
       temperature: weather[:current][:temp]
     }
-  end 
+  end
 
   def trails
-    trails = get_trails(location)
+    trails = get_trails(@location)
     trails.each do |trail|
-      trail[:distance_to_trail] = get_directions(location,trail[:location])[:route][:distance]
-    end 
+      trail[:distance_to_trail] = get_directions(@location, trail[:location])[:route][:distance]
+    end
 
     trails
-  end 
+  end
 
   private
 
@@ -29,7 +29,7 @@ class Trail
     lat = coordinates[:results].first[:locations].first[:latLng][:lat]
     lng = coordinates[:results].first[:locations].first[:latLng][:lng]
     OpenweatherService.new.get_weather_by_location(lat, lng)
-  end 
+  end
 
   def get_coordinates(location)
     MapquestService.new.get_geocode_address(location)
@@ -44,5 +44,5 @@ class Trail
     lat = coordinates[:results].first[:locations].first[:latLng][:lat]
     lng = coordinates[:results].first[:locations].first[:latLng][:lng]
     TrailParser.new.get_trails(lat, lng)
-  end 
-end 
+  end
+end
