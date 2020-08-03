@@ -10,8 +10,11 @@ describe 'Hiking Project API', :vcr do
   end
 
   it 'sends list of trails nearby for given lat and lon' do
-    expect(@trails[:results]).to be_a(Array)
-    expect(@trails[:results].first[:locations].first[:latLng]).to have_key(:lat)
-    expect(@trails[:results].first[:locations].first[:latLng]).to have_key(:lng)
+    expect(@trails[:trails]).to be_a(Array)
+    expect(@trails[:trails].first).to have_key(:id)
+    expect(@trails[:trails].first).to have_key(:name)
+    expect(@trails[:trails].first).to have_key(:summary)
+    expect(@trails[:trails].first).to have_key(:difficulty)
+    expect(@trails[:trails].first).to have_key(:location)
   end
 end
