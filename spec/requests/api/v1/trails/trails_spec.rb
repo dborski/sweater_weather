@@ -14,19 +14,16 @@ describe 'Trails API' do
 
     trails = JSON.parse(response.body, symbolize_names: true)
 
-    binding.pry
-
-    expect(trails[:data]).to have_key([:id])
-    expect(trails[:data][:type]).to eq('trails')
+    expect(trails[:data][:type]).to eq('trail')
     expect(trails[:data][:attributes][:location]).to eq(@location)
-    expect(trails[:data][:attributes][:forecast[:summary]]).to eq()
-    expect(trails[:data][:attributes][:forecast[:temperature]]).to eq()
+    # expect(trails[:data][:attributes][:forecast[:summary]]).to eq('clear sky')
+    # expect(trails[:data][:attributes][:forecast[:temperature]]).to eq(72.77)
 
     expect(trails[:data][:attributes][:trails]).to be_a(Array)
-    expect(trails[:data][:attributes][:trails].first[:name]).to eq()
-    expect(trails[:data][:attributes][:trails].first[:summary]).to eq()
-    expect(trails[:data][:attributes][:trails].first[:difficulty]).to eq()
-    expect(trails[:data][:attributes][:trails].first[:location]).to eq()
-    expect(trails[:data][:attributes][:trails].first[:distance_to_trail]).to eq()
+    expect(trails[:data][:attributes][:trails].first[:name]).to eq('Boulder Skyline Traverse')
+    expect(trails[:data][:attributes][:trails].first[:summary]).to eq('The classic long mountain route in Boulder.')
+    expect(trails[:data][:attributes][:trails].first[:difficulty]).to eq('black')
+    expect(trails[:data][:attributes][:trails].first[:location]).to eq('Superior, Colorado')
+    expect(trails[:data][:attributes][:trails].first[:distance_to_trail]).to eq(23.008)
   end
 end

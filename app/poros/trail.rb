@@ -43,6 +43,7 @@ class Trail
     coordinates = get_coordinates(location)
     lat = coordinates[:results].first[:locations].first[:latLng][:lat]
     lng = coordinates[:results].first[:locations].first[:latLng][:lng]
-    HikingService.new.get_trails(lat, lng)
+    HikingParser.new.get_trails(lat, lng)
+    # HikingService.new.get_trails(lat, lng)
   end 
 end 
