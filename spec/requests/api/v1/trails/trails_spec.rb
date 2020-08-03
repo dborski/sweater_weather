@@ -3,15 +3,8 @@ require 'rails_helper'
 describe 'Trails API' do
   before(:each) do
     @location = 'denver,co'
-    lat = 39.738453
-    lon = -104.984853
 
-    # exclude = 'minutely'
-
-    # weather = OpenweatherService.new
-    # @weather_data = weather.get_weather_by_location(lat, lon, exclude)
-    # @forecast = Forecast.new(@weather_data)
-    @trails = Trail.new(trail_data)
+    @trails = Trail.new(@location)
   end
 
   it 'sends trail info for nearby location', :vcr do
@@ -20,6 +13,8 @@ describe 'Trails API' do
     expect(response).to be_successful
 
     trails = JSON.parse(response.body, symbolize_names: true)
+
+    binding.pry
 
     expect(trails[:data]).to have_key([:id])
     expect(trails[:data][:type]).to eq('trails')

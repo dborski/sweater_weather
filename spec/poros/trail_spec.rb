@@ -14,7 +14,7 @@ describe 'Trail' do
     expect(@trail.location).to eq(@location)
     
     expect(@trail.forecast[:summary]).to eq('clear sky')
-    # expect(@trail.forecast[:temperature]).to eq(72.18)
+    # expect(@trail.forecast[:temperature]).to eq(72.77)
 
     expect(@trail.trails.first[:name]).to eq('Boulder Skyline Traverse')
     expect(@trail.trails.first[:summary]).to eq('The classic long mountain route in Boulder.')

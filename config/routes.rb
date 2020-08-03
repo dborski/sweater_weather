@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
       post '/users', to: 'users#create'
       post '/sessions', to: 'sessions#create'
+
+      get '/trails', to: 'trails#index'
     end
   end
 end
