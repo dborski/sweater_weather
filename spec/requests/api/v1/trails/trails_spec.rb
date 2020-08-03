@@ -16,8 +16,8 @@ describe 'Trails API' do
 
     expect(trails[:data][:type]).to eq('trail')
     expect(trails[:data][:attributes][:location]).to eq(@location)
-    # expect(trails[:data][:attributes][:forecast[:summary]]).to eq('clear sky')
-    # expect(trails[:data][:attributes][:forecast[:temperature]]).to eq(72.77)
+    expect(trails[:data][:attributes][:forecast][:summary]).to eq('clear sky')
+    expect(trails[:data][:attributes][:forecast][:temperature]).to eq(73.4)
 
 
     expect(trails[:data][:attributes][:trails]).to be_a(Array)

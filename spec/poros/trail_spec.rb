@@ -13,8 +13,8 @@ describe 'Trail' do
   it 'attributes', :vcr do
     expect(@trail.location).to eq(@location)
     
-    expect(@trail.forecast[:summary]).to eq('clear sky')
-    # expect(@trail.forecast[:temperature]).to eq(72.77)
+    expect(@trail.forecast[:summary]).to eq('few clouds')
+    expect(@trail.forecast[:temperature]).to eq(76.71)
 
     expect(@trail.trails.first[:name]).to eq('Boulder Skyline Traverse')
     expect(@trail.trails.first[:summary]).to eq('The classic long mountain route in Boulder.')
