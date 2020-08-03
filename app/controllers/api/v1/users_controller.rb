@@ -1,6 +1,4 @@
 class Api::V1::UsersController < ApplicationController
-  protect_from_forgery prepend: true
-
   def create
     user = User.new(user_params)
     if user.save && passwords_match?
