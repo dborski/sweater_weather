@@ -20,5 +20,8 @@ class Api::V1::RoadTripController < ApplicationController
   #     travel_time: travel_time,
   #     arrival_forecast: destination_forecast.current
   #   )
-  # end
+
+  road_trip = RoadTripCreator.new(user_api_key, origin, destination)
+  render json: RoadTripSerializer.new(road_trip)
+  end
 end
