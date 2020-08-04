@@ -6,7 +6,8 @@ describe 'RoadTrip' do
     @origin = 'Denver,CO'
     @destination = 'Pueblo,CO'
 
-    @rt_creator = RoadTripCreator.new({
+    @rt_creator = RoadTripCreator.new(@user, 
+                                      {
                                         api_key: @user.api_key,
                                         origin: @origin,
                                         destination: @destination

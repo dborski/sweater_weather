@@ -3,7 +3,7 @@ class Api::V1::RoadTripController < ApplicationController
     user = User.find_by(api_key: road_trip_params[:api_key])
 
     if authorized_user?(user)
-      road_trip = RoadTripCreator.new(road_trip_params).create_road_trip
+      road_trip = RoadTripCreator.new(user, road_trip_params).create_road_trip
       options = { include: [:user], fields: { user: [:api_key] } }
       render json: RoadTripSerializer.new(road_trip, options)
     else

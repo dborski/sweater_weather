@@ -1,4 +1,4 @@
-module GeoCodeable
+module ServicesHelper
   def get_coords(location)
     address = MapquestService.new.get_geocode_address(location)
     {
@@ -11,4 +11,8 @@ module GeoCodeable
     coords = get_coords(location)
     weather_data = OpenweatherService.new.get_weather_by_location(coords[:lat], coords[:lng])
   end 
+
+  def get_directions(origin, destination)
+    MapquestService.new.get_directions(origin, destination)
+  end
 end 
