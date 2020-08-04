@@ -1,10 +1,6 @@
 class Api::V1::ForecastController < ApplicationController
   def index
-    address = MapquestService.new.get_geocode_address(params[:location])
-    lat = address[:results].first[:locations].first[:latLng][:lat]
-    lng = address[:results].first[:locations].first[:latLng][:lng]
-    weather_data = OpenweatherService.new.get_weather_by_location(lat, lng)
-
+    weather_data = get_geocoded_weather(params[:location])
     render json: ForecastSerializer.new(Forecast.new(weather_data))
   end
 end

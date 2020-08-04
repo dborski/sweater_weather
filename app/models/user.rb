@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :road_trips
+
   validates :email, uniqueness: true, presence: true
   # validates_presence_of :api_key
   validates_presence_of :password, require: true, confirmation: true

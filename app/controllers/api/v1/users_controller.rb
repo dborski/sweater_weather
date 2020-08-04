@@ -2,7 +2,7 @@ class Api::V1::UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save && passwords_match?
-      render json: UsersSerializer.new(user)
+      render json: UserSerializer.new(user)
     else
       msg = { body: user.errors.full_messages.to_sentence, status: 400 }
       render json: msg

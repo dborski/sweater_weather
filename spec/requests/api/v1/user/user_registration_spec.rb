@@ -46,7 +46,7 @@ describe 'User Registration' do
     new_user = JSON.parse(response.body, symbolize_names: true)
 
     expect(new_user[:status]).to eq(400)
-    expect(new_user[:body]).to eq("Password confirmation doesn't match Password and Password confirmation doesn't match Password")
+    expect(new_user[:body]).to eq("Password confirmation doesn't match Password")
   end
 
   it 'Fails to create a new user because email is missing', :vcr do
@@ -76,6 +76,6 @@ describe 'User Registration' do
     new_user = JSON.parse(response.body, symbolize_names: true)
 
     expect(new_user[:status]).to eq(400)
-    expect(new_user[:body]).to eq("Password can't be blank, Password can't be blank, and Password confirmation doesn't match Password")
+    expect(new_user[:body]).to eq("Password can't be blank and Password confirmation doesn't match Password")
   end
 end
