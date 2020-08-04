@@ -1,6 +1,5 @@
 class RoadTrip < ApplicationRecord
   include ServicesHelper
-
   belongs_to :user
 
   after_find do |trip|

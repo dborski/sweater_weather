@@ -10,8 +10,4 @@ class User < ApplicationRecord
   before_create do
     self.api_key = SecureRandom.uuid
   end
-
-  after_find do |user|
-    
-  end 
 end
