@@ -6,7 +6,7 @@ class Api::V1::RoadTripController < ApplicationController
       road_trip = RoadTripCreator.new(road_trip_params).create_road_trip
       options = { include: [:user], fields: { user: [:api_key] } }
       render json: RoadTripSerializer.new(road_trip, options)
-    else 
+    else
       msg = { body: 'Unauthorized', status: 401 }
       render json: msg
     end
@@ -16,9 +16,9 @@ class Api::V1::RoadTripController < ApplicationController
 
   def authorized_user?(user)
     user && road_trip_params[:api_key]
-  end 
+  end
 
   def road_trip_params
     params.permit(:api_key, :origin, :destination)
-  end 
+  end
 end

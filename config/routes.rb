@@ -12,10 +12,6 @@ Rails.application.routes.draw do
       resources :users, only: [:create]
 
       post '/road_trip', to: 'road_trip#create'
-      
-      
-
-      # post '/users/:id/road_trips', to: 'road_trips#create'
     end
   end
 end

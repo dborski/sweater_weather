@@ -6,7 +6,11 @@ describe 'RoadTrip' do
     @origin = 'Denver,CO'
     @destination = 'Pueblo,CO'
 
-    @rt_creator = RoadTripCreator.new(@user.api_key, @origin, @destination)
+    @rt_creator = RoadTripCreator.new({
+                                        api_key: @user.api_key,
+                                        origin: @origin,
+                                        destination: @destination
+                                      })
   end
 
   it 'exists', :vcr do
@@ -21,11 +25,11 @@ describe 'RoadTrip' do
   it 'Can get a forecast for the destination', :vcr do
     expect(@rt_creator.get_forecast).to have_key(:temperature)
     expect(@rt_creator.get_forecast).to have_key(:summary)
-  end 
+  end
 
   it 'Can create a name for the road_trip', :vcr do
     expect(@rt_creator.name_generator).to eq("Road Trip from #{@origin} to #{@destination}")
-  end 
+  end
 
   it 'Creates a user road_trip', :vcr do
     @rt_creator.create_road_trip

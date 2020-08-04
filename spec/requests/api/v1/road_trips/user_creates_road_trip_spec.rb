@@ -25,7 +25,7 @@ describe 'Road Trip API' do
 
     expect(road_trip[:data][:relationships]).to have_key(:user)
     expect(road_trip[:data][:relationships][:user][:data][:id]).to eq(@user1.id.to_s)
-    
+
     expect(road_trip[:included].first[:id]).to eq(@user1.id.to_s)
     expect(road_trip[:included].first[:attributes][:api_key]).to eq(@user1.api_key)
   end

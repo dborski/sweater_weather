@@ -1,10 +1,10 @@
 class RoadTripCreator
   attr_reader :origin, :destination
 
-  def initialize(user_key, origin, destination)
-    @user_key = user_key
-    @origin = origin
-    @destination = destination
+  def initialize(road_trip_info)
+    @user_key = road_trip_info[:api_key]
+    @origin = road_trip_info[:origin]
+    @destination = road_trip_info[:destination]
   end
 
   def user
@@ -15,13 +15,13 @@ class RoadTripCreator
     weather = get_weather(@destination)
     {
       temperature: weather[:current][:temp],
-      summary: weather[:current][:weather].first[:description],
+      summary: weather[:current][:weather].first[:description]
     }
   end
 
   def name_generator
     "Road Trip from #{@origin} to #{@destination}"
-  end 
+  end
 
   def create_road_trip
     forecast = get_forecast
@@ -33,8 +33,8 @@ class RoadTripCreator
       arrival_temp: forecast[:temperature],
       arrival_weather_desc: forecast[:summary]
     })
-  end 
-  
+  end
+
   private
 
   def get_weather(location)
@@ -51,4 +51,4 @@ class RoadTripCreator
   def get_directions(origin, destination)
     MapquestService.new.get_directions(origin, destination)
   end
-end 
+end

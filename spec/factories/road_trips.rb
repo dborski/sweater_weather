@@ -1,11 +1,11 @@
 FactoryBot.define do
   factory :road_trip do
-    name { "MyString" }
-    origin { "MyString" }
-    destination { "MyString" }
-    travel_time { "MyString" }
+    name { '' }
+    origin { '' }
+    destination { '' }
+    travel_time { '' }
     arrival_temp { 1.5 }
-    arrival_weather_desc { "MyString" }
+    arrival_weather_desc { '' }
     user { nil }
   end
 end

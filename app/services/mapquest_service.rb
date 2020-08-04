@@ -14,6 +14,6 @@ class MapquestService < BaseService
   def get_directions(from_address, to_address)
     params = { key: @mapquest_key, from: from_address, to: to_address }
 
-    get_json(@directions_url,'route', params)
+    get_json(@directions_url, 'route', params)
   end
 end

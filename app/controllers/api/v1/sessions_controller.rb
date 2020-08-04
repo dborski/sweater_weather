@@ -9,7 +9,7 @@ class Api::V1::SessionsController < ApplicationController
   def authenticate(user)
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      render json: UsersSerializer.new(user)
+      render json: UserSerializer.new(user)
     else
       msg = { body: 'Credentials Invalid', status: 400 }
       render json: msg
