@@ -5,7 +5,7 @@ class OpenweatherService < BaseService
   end
 
   def get_weather_by_location(lat, lon, exclude = 'minutely', units = 'imperial')
-    params = { appid: @openweather_key, lat: lat, lon: lon, exclude: exclude, units = units }
+    params = { appid: @openweather_key, lat: lat, lon: lon, exclude: exclude, units: units }
 
     get_json(@base_url, 'onecall', params)
   end
