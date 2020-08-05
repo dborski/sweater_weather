@@ -23,13 +23,15 @@ class RoadTripCreator
 
   def create_road_trip
     forecast = get_forecast
-    @user.road_trips.create({
-      name: name_generator,
-      origin: @origin,
-      destination: @destination,
-      travel_time: get_directions(@origin, @destination)[:route][:formattedTime],
-      arrival_temp: forecast[:temperature],
-      arrival_weather_desc: forecast[:summary]
-    })
+    @user.road_trips.create(
+      {
+        name: name_generator,
+        origin: @origin,
+        destination: @destination,
+        travel_time: get_directions(@origin, @destination)[:route][:formattedTime],
+        arrival_temp: forecast[:temperature],
+        arrival_weather_desc: forecast[:summary]
+      }
+    )
   end
 end

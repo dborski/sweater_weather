@@ -1,21 +1,6 @@
-class Api::V1::UsersController < ApplicationController
+class Api::V1::UsersController < Api::V1::BaseController
   def create
     user = User.new(user_params)
-    if user.save && passwords_match?
-      render json: UserSerializer.new(user)
-    else
-      msg = { body: user.errors.full_messages.to_sentence, status: 400 }
-      render json: msg
-    end
-  end
-
-  private
-
-  def user_params
-    params.permit(:email, :password, :password_confirmation)
-  end
-
-  def passwords_match?
-    params[:password] == params[:password_confirmation]
+    user.save ? register_success(user) : register_failure(user)
   end
 end
