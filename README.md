@@ -1,24 +1,16 @@
-# README
+# Sweater Weather
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Sweater Weather is the backend of a service-oriented application that builds and exposes multiple API endpoints. The application allows the user to plan road trips and see the current weather as well as the forecasted weather at the detination.
 
-Things you may want to cover:
+This was created by Derek Borski for the Backend Engineering Program at the Turing School of Software & Design.
 
-* Ruby version
+## API Endpoints
 
-* System dependencies
+#### Forecast
 
-* Configuration
+```
+/forecast?location=<city>,<state>
+```
 
-* Database creation
+Displays the current, hourly, and daily forecast for the desired location
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
