@@ -46,8 +46,7 @@ jobs:
           name: Database setup
       - ruby/rspec-test
 orbs:
-  node: circleci/node@x.y
-  ruby: circleci/ruby@x.y
+  ruby: circleci/ruby@1.1.0
 version: 2.1
 workflows:
   build_and_test:
