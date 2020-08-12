@@ -23,8 +23,8 @@ jobs:
       - checkout
       - run: gem install bundler
       # Bundle install dependencies
-      - run: bundle config set path vendor/bundle
       - run: bundler update --bundler
+      - run: bundle config set path vendor/bundle
       # Database setup
       - run: bundle exec rake db:create db:schema:load
       - run:
