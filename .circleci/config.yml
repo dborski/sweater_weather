@@ -1,6 +1,8 @@
 version: 2.1
 orbs:
   ruby: circleci/ruby@1.1.0
+  node: circleci/node@x.y
+  ruby: circleci/ruby@x.y
 
 jobs:
   build:
@@ -49,9 +51,6 @@ jobs:
           command: 'bundle exec rails db:schema:load --trace'
           name: Database setup
       - ruby/rspec-test
-orbs:
-  node: circleci/node@x.y
-  ruby: circleci/ruby@x.y
 version: 2.1
 workflows:
   build_and_test:
