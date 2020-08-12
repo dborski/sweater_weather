@@ -21,6 +21,7 @@ jobs:
     working_directory: ~/circleci-demo-workflows
     steps:
       - checkout
+      - run: gem install bundler
       # Bundle install dependencies
       - run: bundle install --path vendor/bundle
       # Database setup
